@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Underdog&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Cinzel+Decorative|Eagle+Lake&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="CSS/style.css">
+    <style type="text/css">* {cursor: url(http://cur.cursors-4u.net/user/use-1/use160.cur), auto !important;}</style>
+    <title>The Wizarding Quiz</title>
+    <script src="js/main.js">   </script>
+</head>
+<body class="registro">
+
+<div class="container-registro">
+
+    <header>
+        <nav id="logo">
+            <img src="img/logo.jpg" alt="logo">
+        </nav>
+        <strong>
+            <nav id="uno">
+                <a href="home">HOME</a><a href="FAQ">FAQ</a><a href="registro">REGISTRO</a><a href="login">LOG IN</a>
+            </nav>
+        </strong>
+    </header>
+
+    <form class="form" th:action="@{/login}" th:object="${usuario}" method="post">
+        <fieldset>
+
+            <strong><div class="titulo">REGISTRO</div></strong>
+
+            <div class="personaje">
+                <img src="img/mcgonagall.jpg" alt="Mcgonagall" >
+            </div>
+
+
+            <p class="registroform">
+
+                <input id="nombre" name="nombre" type="text" th:text="${unUsuarioARegistrar.nombre}" placeholder="Nombre">
+
+
+
+            <p>
+                <span style="color: red; font-size: 10px;" class="ErrorNombre"></span>
+            </p>
+            </p>
+
+
+
+            <p class="registroform">
+                <input id="apellido" name="apellido" type="text" placeholder="Apellido">
+
+
+            <p>
+                <span style="color: red; font-size: 10px;" class="ErrorApellido"></span>
+            </p>
+            </p>
+
+
+
+
+
+
+
+
+
+
+            <p class="registroform">
+                <input id="usuario" name="usuario" type="text" placeholder="Ingrese su usuario">
+
+            <p>
+                <span style="color: red; font-size: 10px;" class="ErrorUsuario"></span>
+            </p>
+            </p>
+
+
+
+
+            <p class="registroform">
+
+                <input id="email" name="email" type="email" placeholder="Ingrese su email"  >
+
+
+            <p>
+                <span style="color: red; font-size: 10px;" class="ErrorEmail"></span>
+            </p>
+            </p>
+
+
+
+
+            <p class="registroform">
+
+
+                <input id="contraseña"  type="password" name="contraseña" placeholder="Ingrese su contraseña"  value="" >
+
+            <p>
+                <span style="color: red; font-size: 10px;" class="ErrorPassword"></span>
+            </p>
+            </p>
+
+
+
+
+
+            <p class="registroform">
+
+                <input id="confirmar-contraseña"   type="password" name="confirmarContraseña" placeholder="Confirmar su contraseña"  value="">
+
+            <p>
+                <span style="color: red; font-size: 10px;" class="ErrorPassword"></span>
+            </p>
+            </p>
+
+
+
+
+
+            <label class="contacto"  name="paises"> País : </label>
+
+            <p>
+                <select class="paises" name="paises">
+                    <option value="">Selecciona un país</option>
+                </select>
+            <p>
+                <span style="color: red; font-size: 10px;" class="ErrorPaises"></span>
+            </p>
+            </p>
+
+
+
+
+
+
+            <label for="casas" class="label">Selecciona tu casa preferida</label>
+            <p class="casas">
+                <input type="image" src="img/hogwarts2.jpg" value="" width="10%" >
+            </p>
+            <p class="login-casas">
+                <input type="radio" name="casas" id="casas"> Gryffindor
+                <input type="radio" name="casas" id="casas"> Hufflepuff
+                <input type="radio" name="casas" id="casas"> Ravenclaw
+                <input type="radio" name="casas" id="casas"> Slytherin
+            </p>
+
+            <div class="boton">
+
+                <button  type="submit" name="button"> Crear cuenta </button>
+
+
+            </div>
+
+        </fieldset>
+    </form>
+
+
+    <footer >
+        <div class="container-footer">
+            2019@ Copyright Wingardium.Inc
+        </div>
+    </footer>
+
+
+
+
+
+
+    <script>
+
+
+window.addEventListener ('load', function (){
+
+
+
+var nombre = document.querySelector("#nombre");
+var apellido = document.querySelector("#apellido");
+var usuario = document.querySelector("#usuario");
+var email = document.querySelector("#email");
+var contraseña = document.querySelector("#contraseña");
+var confirmarContraseña = document.querySelector("#confirmar-contraseña");
+var paises = document.querySelector(".paises");
+
+var errores = false;
+var errorNombre = document.querySelector(".ErrorNombre");
+var errorApellido = document.querySelector(".ErrorApellido");
+var errorUsuario = document.querySelector(".ErrorUsuario");
+var errorEmail = document.querySelector(".ErrorEmail");
+var errorContraseña = document.querySelector(".ErrorPassword");
+var errorPaises = document.querySelector(".ErrorPaises");
+
+var formatoEmail = /^[a-zA-Z0-9.-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+
+
+document.querySelector("form").addEventListener("submit", function(event) {
+
+
+
+
+if (nombre.value.trim() == ""){
+  event.preventDefault();
+  errorNombre.innerHTML ="El nombre es obligatorio";
+  nombre.style.border ="2px solid red";
+  errores=true;
+}else if (nombre.value.length < 3){
+  event.preventDefault();
+  errorNombre.innerHTML = "El nombre debe tener al menos 3 caracteres";
+nombre.style.border ="2px solid red";
+errores=true;
+} else {
+errorNombre.innerHTML = "";
+nombre.style.border ="2px solid green";
+}
+
+
+if (apellido.value.trim() == "") {
+  event.preventDefault();
+  errorApellido.innerHTML = "El apellido es obligatorio";
+apellido.style.border ="2px solid red";
+errores=true;
+}else if (apellido.value.length < 5){
+  event.preventDefault();
+  errorApellido.innerHTML = "El apellido debe tener al menos 5 caracteres";
+apellido.style.border ="2px solid red";
+errores=true;
+} else {
+errorApellido.innerHTML = "";
+apellido.style.border ="2px solid green";
+}
+
+if (usuario.value.trim() == ""){
+  event.preventDefault();
+  errorUsuario.innerHTML = "El usuario es obligatorio";
+usuario.style.border ="2px solid red";
+errores=true;
+}else if (usuario.value.length < 5){
+  event.preventDefault();
+  errorUsuario.innerHTML = "El usuario debe tener al menos 5 caracteres";
+usuario.style.border ="2px solid red";
+errores=true;
+} else {
+errorUsuario.innerHTML = "";
+usuario.style.border ="2px solid green";
+}
+
+
+
+
+
+if (email.value.trim() == ""){
+  event.preventDefault();
+  errorEmail.innerHTML = "El email es obligatorio";
+  email.style.border ="2px solid red";
+    errores=true;
+}else if (!formatoEmail.test(email.value)){
+  event.preventDefault();
+errorEmail.innerHTML = "El email es inválido";
+email.style.border ="2px solid red";
+errores=true;
+} else {
+errorEmail.innerHTML = "";
+email.style.border ="2px solid green";
+}
+
+
+
+
+
+if (contraseña.value.trim() == "") {
+  event.preventDefault();
+  errorContraseña.innerHTML = "La contraseña es obligatoria";
+contraseña.style.border ="2px solid red";
+errores=true;
+}else if (contraseña.value.length < 8){
+  event.preventDefault();
+  errorContraseña.innerHTML = "La contraseña debe tener al menos 8 caracteres";
+contraseña.style.border ="2px solid red";
+errores=true;
+} else if (contraseña.value != confirmarContraseña.value){
+  event.preventDefault();
+errorContraseña.innerHTML = "La contraseña debe coincidir";
+contraseña.style.border ="2px solid red";
+errores=true;
+} else {
+errorContraseña.innerHTML = "";
+contraseña.style.border ="2px solid green";
+}
+
+if (paises.value == ""){
+  event.preventDefault();
+  errorPaises.innerHTML ="El país es obligatorio";
+  paises.style.border ="2px solid red";
+  errores=true;
+} else {
+errorPaises.innerHTML = "";
+paises.style.border ="2px solid green";
+}
+
+
+if (!errores){
+  alert("Se ha registrado correctamente");
+}
+
+})
+});
+
+window.addEventListener ('load', function (){
+fetch("https://restcountries.eu/rest/v2/all")
+.then(function (response){
+  return response.json();
+})
+  .then(function(data){
+    console.log(data);
+    var seleccionPaises = document.querySelector(".paises");
+    for(var i = 0; i < data.length;i++){
+    seleccionPaises.innerHTML += "<option>"+data[i].name+"</option>";
+}
+    })
+
+});
+
+
+  </script>
+
+
+
+</div>
+</body>
+</html>
