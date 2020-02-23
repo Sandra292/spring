@@ -12,11 +12,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 @Controller
 public class ControllerHTML {
 
-    @Autowired
-    private Servicio serviceUsuario;
-
-    @Autowired
-    private UsuarioJpaRepository usuarioJpaRepository;
 
     @GetMapping("home")
     public String irAlHome() {
@@ -24,30 +19,26 @@ public class ControllerHTML {
 
     }
 
-    @GetMapping("registro")
+    /*@GetMapping("registro")
     public String irAlRegistro() {
         return "Home/registro";
 
-    }
+    }*/
 
 
-    @PostMapping("registro")
-    public Usuario insertUsuario(@RequestBody Usuario unUsuarioARegistrar) {
-        Usuario unUsuarioRegistrado =  usuarioJpaRepository.save(unUsuarioARegistrar);
-        return unUsuarioRegistrado;
-    }
 
-    @PostMapping ("registro")
-    public String enviarRegistro() {
-        return "Home/registro";
 
-    }
-
-    @GetMapping("login")
+   @GetMapping("login")
     public String irAlLogin() {
         return "Home/login";
 
     }
+
+   /* @PostMapping("login")
+    public String usuarioRegistrado() {
+        return "Home/login";
+
+    }*/
 
     @GetMapping("FAQ")
     public String irAFaq() {

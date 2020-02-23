@@ -1,16 +1,18 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+
+<html lang="en" dir="ltr" xmlns:th="http://thymeleaf.org" >
 <head>
     <meta charset="utf-8"></meta>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
     <meta http-equiv="X-UA-Compatible" content="ie=edge"></meta>
+    <link rel="icon" type="image/jpg" href="img/logo.jpg">
     <link href="https://fonts.googleapis.com/css?family=Underdog&display=swap" rel="stylesheet"></link>
     <link href="https://fonts.googleapis.com/css?family=Cinzel+Decorative|Eagle+Lake&display=swap" rel="stylesheet"></link>
     <link rel="stylesheet" href="/CSS/style.css"></link>
     <style type="text/css">* {cursor: url(http://cur.cursors-4u.net/user/use-1/use160.cur), auto !important;}</style>
     <title>The Wizarding Quiz</title>
 </head>
-<body class="home">
+<body class="game-quizz">
 <div class="container">
 
     <header>
@@ -24,13 +26,37 @@
     </header>
 
 
-    <div class="container1">
-        <div class="box">
-            <img src="img/Cartel2.jpg"></img>
 
+    <div class="div-partida" >
+        <h1 th:text="${listaPreguntas.pregunta}">
+
+        </h1>
+    </div>
+
+
+    <div class="div-partida">
+        <div>
+            <img src="img/Cartel2.jpg"></img>
         </div>
 
-    </div>
+            </div>
+
+<div class="div-respuestas">
+    <p class="respuestas">
+         <input type="radio" name="respuesta1" id="casas"> El deporte favorito de Harry Potter
+    </p>
+    <p class="respuestas">
+        <input type="radio" name="respuesta1" id="casas"> La lengua en clave de los de Gryffindor
+    </p>
+    <p class="respuestas">
+        <input type="radio" name="respuesta1" id="casas"> El arte de hacer las mejores varitas mágicas
+    </p>
+    <p class="respuestas">
+        <input type="radio" name="respuesta1" id="casas"> Un postre típico de Hogwarts
+    </p>
+
+</div>
+
 
 
 
