@@ -200,30 +200,49 @@ margin-top: 39%;
     }*/
 
 
-    body.game-quizz{
+    body.body-partida{
       background-image: url("../img/fondomagia.jpg");
       margin:0;
       padding: 0;
-      background-size:cover;
+      background-repeat: repeat;
     }
+
+    .preguntando {
+    /*background:*/
+    text-align: center;
+      margin-left: 10%;
+        font-size: 90%;
+        color: white;
+        }
+
+      .fondo {
+             background: black;
+             margin-top: 2%;
+             margin-left: 10%;
+                          }
 
     div.div-partida {
     text-align: center;
     margin-top: 3%;
     margin-left: 10%;
     font-size: 90%;
+    color: white;
+
         }
+
+
 
         div.div-partida img {
         margin-left: 1%;
-        width: 628px;
-        height: 353px;
+        width: 300px;
+        height: 250px;
         }
 
         div.div-respuestas {
         display: flex;
         flex-direction: column;
         align-items: center;
+        color: white;
         }
 
         p.respuestas {

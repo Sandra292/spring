@@ -12,17 +12,27 @@ public class Respuestas {
     private Integer id;
 
     @Column(nullable = false)
-    private String pregunta_id;
+    private String respuesta1;
+
+    @Column(nullable = false)
+    private String respuesta2;
+
+    @Column(nullable = false)
+    private String respuesta3;
+
+    @Column(nullable = false)
+    private String respuesta4;
 
 
     public Respuestas() {
-
     }
 
-
-    public Respuestas(Integer id, String pregunta_id) {
+    public Respuestas(Integer id, String respuesta1, String respuesta2, String respuesta3, String respuesta4) {
         this.id = id;
-        this.pregunta_id = pregunta_id;
+        this.respuesta1 = respuesta1;
+        this.respuesta2 = respuesta2;
+        this.respuesta3 = respuesta3;
+        this.respuesta4 = respuesta4;
     }
 
     public Integer getId() {
@@ -33,11 +43,36 @@ public class Respuestas {
         this.id = id;
     }
 
-    public String getPregunta_id() {
-        return pregunta_id;
+    public String getRespuesta1() {
+        return respuesta1;
     }
 
-    public void setPregunta_id(String pregunta_id) {
-        this.pregunta_id = pregunta_id;
+    public void setRespuesta1(String respuesta1) {
+        this.respuesta1 = respuesta1;
+    }
+
+    public String getRespuesta2() {
+        return respuesta2;
+    }
+
+    public void setRespuesta2(String respuesta2) {
+        this.respuesta2 = respuesta2;
+    }
+
+    public String getRespuesta3() {
+        return respuesta3;
+    }
+
+    public void setRespuesta3(String respuesta3) {
+        this.respuesta3 = respuesta3;
+    }
+
+    public String getRespuesta4() {
+        return respuesta4;
+    }
+
+    public void setRespuesta4(String respuesta4) {
+        this.respuesta4 = respuesta4;
     }
 }
+

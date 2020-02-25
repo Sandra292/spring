@@ -1,13 +1,10 @@
 package com.harrypotter.TriviaHarryPotter.controller;
 
-import com.harrypotter.TriviaHarryPotter.model.Usuario;
-import com.harrypotter.TriviaHarryPotter.repository.UsuarioJpaRepository;
-import com.harrypotter.TriviaHarryPotter.service.Servicio;
-import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+
 
 @Controller
 public class ControllerHTML {
@@ -58,10 +55,12 @@ public class ControllerHTML {
 
     }
 
-    @GetMapping("partida")
+    /*@GetMapping("partida")
     public String irAPartida() {
         return "Home/partida";
-    }
+    }*/
+
+
 
 
 }

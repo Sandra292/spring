@@ -1,6 +1,7 @@
 <!doctype html>
-<html lang="en" dir="ltr">
+<html lang="en" dir="ltr" xmlns:th="http://thymeleaf.org">
 <head>
+
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -13,15 +14,44 @@
 <body>
 <h1>Ingreso de datos</h1>
 
-<form method="POST">
-    <div class="form-group">
+<!--*@{/bdpregunta/all}"-->
+
+
+<form method="POST"  th:action="@{partida}" enctype="multipart/form-data" <!--th:object="${preguntas}"--> >
+
+    <div class="form-group" >
         <label for="exampleInputEmail1">Ingresar Pregunta</label>
         <input type="text" name="pregunta" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
         <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
     </div>
 
+    <div class="form-group">
+        <label for="exampleInputEmail1">Ingresar Respuesta 1</label>
+        <input type="text" name="respuesta1" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+    </div>
+
+    <div class="form-group">
+        <label for="exampleInputEmail1">Ingresar Respuesta 2</label>
+        <input type="text" name="respuesta2" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+    </div>
+
+    <div class="form-group">
+        <label for="exampleInputEmail1">Ingresar Respuesta 3</label>
+        <input type="text" name="respuesta3" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+    </div>
+
+    <div class="form-group">
+        <label for="exampleInputEmail1">Ingresar Respuesta 4</label>
+        <input type="text" name="respuesta4" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+    </div>
+
 
     <button type="submit" class="btn btn-primary" name="button">Submit</button>
+
 </form>
 
 
