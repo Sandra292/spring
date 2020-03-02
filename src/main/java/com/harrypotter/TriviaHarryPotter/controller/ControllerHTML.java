@@ -31,11 +31,11 @@ public class ControllerHTML {
 
     }
 
-   /* @PostMapping("login")
+   @PostMapping("login")
     public String usuarioRegistrado() {
         return "Home/login";
 
-    }*/
+    }
 
     @GetMapping("FAQ")
     public String irAFaq() {
