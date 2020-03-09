@@ -4,6 +4,7 @@ package com.harrypotter.TriviaHarryPotter.model;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.util.ArrayList;
 
 @Entity
 @Table(name = "answers")
@@ -12,6 +13,7 @@ public class Answer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    private ArrayList<Partidas> list = new ArrayList<>();
 
     @NotNull(message = "Pregunta no puede estar vacia")
     @Size(min =2 , message= "Preguna al menos 2 letras")
@@ -34,10 +36,8 @@ public class Answer {
         return id != null && id.equals(((Answer) o).getId());
     }
 
-    @Override
-    public int hashCode() {
-        return 31;
-    }
+    //@Override
+    //public int hashCode() { return 31;    }
 
     public Question getQuestion() {
         return question;

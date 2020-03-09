@@ -1,59 +1,75 @@
 package com.harrypotter.TriviaHarryPotter.controller;
 
-import com.harrypotter.TriviaHarryPotter.model.Usuario;
+import com.harrypotter.TriviaHarryPotter.model.Usuarios;
 import com.harrypotter.TriviaHarryPotter.repository.UsuarioJpaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-import java.util.Optional;
+import javax.validation.Valid;
 
 @Controller
-@RequestMapping("registro")
 public class UsuarioController {
 
     @Autowired
     private UsuarioJpaRepository usuarioJpaRepository;
 
-    /*@GetMapping("")
-    public List<Usuario> getUsuarios(){
-        List<Usuario> usuarios = usuarioJpaRepository.findAll();
-        return usuarios;
-    }*/
 
-    @GetMapping("")
-    public String irAlRegistro() {
+
+    @GetMapping("registro")
+    public String irAlRegistro(Usuarios usuarios) {
         return "Home/registro";
 
     }
 
 
-    /*@GetMapping("{id}")
-    public Usuario getUsuarioById(@PathVariable("id") Integer id) {
-        Optional<Usuario> unOptionalUsuario = usuarioJpaRepository.findById(id);
-        return unOptionalUsuario.get();
-    }*/
+    @PostMapping("registro")
+    public String validarRegistro(@Valid Usuarios usuarios, BindingResult bindingResult) {
 
+        if (bindingResult.hasErrors()) {
+            return "Home/registro";
+        }
 
-    /*@PostMapping("")
-    public Usuario insertUsuario(@RequestBody Usuario unUsuarioARegistrar) {
-        Usuario unUsuarioRegistrado =  usuarioJpaRepository.save(unUsuarioARegistrar);
-        return unUsuarioRegistrado;
-    }*/
-
-    /*@DeleteMapping("{id}")
-    public void deleteUsuario(@PathVariable("id") Integer id) {
-        usuarioJpaRepository.deleteById(id);
-    }*/
-
-
-    @PostMapping("")
-    public String agregarUsuario (Usuario usuarioRegistrado) {
-         usuarioJpaRepository.save(usuarioRegistrado);
+        usuarioJpaRepository.save(usuarios);
         return "Home/login";
     }
+
+
+  /*  @GetMapping("login")
+    public String login(Model model, String error, String logout) {
+        if (error != null)
+            model.addAttribute("error", "Usuario o password incorrectos");
+        return "Home/login";
+    }*/
+
+    @GetMapping("login")
+    public String irAlLogin() {
+        return "Home/login";
+
+    }
+
+    @PostMapping("login")
+    public String comprobarLogin(Model model, Usuarios usuario) {
+        String mailIngresado = usuario.getEmail();
+        String contraseñaIngresada = usuario.getContraseña();
+
+        Usuarios usuarioEncontrado = usuarioJpaRepository.findByEmail(mailIngresado);
+
+        if(usuarioEncontrado == null) {
+            return "Home/error";
+        }
+
+        if(usuarioEncontrado.getContraseña().equals(contraseñaIngresada)) {
+            model.addAttribute("usuario", usuarioEncontrado.getUsuario());
+            return "Home/game";
+        } else {
+            return "Home/error";
+        }
+
+    }
+
 
 
 

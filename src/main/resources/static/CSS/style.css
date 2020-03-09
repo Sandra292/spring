@@ -94,6 +94,7 @@ header nav#uno a:hover{
 footer{
   overflow: hidden;
 }
+
 .container-footer{
 font-family: 'Cinzel Decorative', cursive;
 font-size: 1.0rem;
@@ -261,65 +262,61 @@ button:hover{
 
     }
 
-    /* CSS DEL GAME Y QUIZZES*/
-    body.game-body{
-      background-image: url("../img/Castillo.jpg");
-      /*background-color: #021122;*/
-      margin:0;
-      padding: 0;
-      background-size:cover;
-    }
-    .albus{
-      display:flex;
-
-      justify-content:center;
-
-    }
-
-    .game-button{
-      text-decoration: none;
-    }
-
-    .img-game {
-      width: 290px;
-      height:290px ;
-      border-radius: 50%;
-      margin-top: 20px;
-      margin-left: 30px;
-      border: #102b4b 3px solid;
+      /* CSS DEL GAME */
+        body.game-body{
+          background-image: url("../img/Castillo.jpg");
+          /*background-color: #021122;*/
+          margin:0;
+          padding: 0;
+          background-size:cover;
+        }
 
 
-    }
+        .game-button{
+          text-decoration: none;
+        }
 
-    .owl{
-
-    border: #102b4b 3px solid;;
-      border-radius: 40%;
-      height: 20%;
-      background-color: #0b131c;
-      text-decoration: none;
-      font-family: 'Cinzel Decorative', cursive;
-      margin-left: 110px;
-
-    }
-
-    .cajamayor{
-      flex-direction: column;
-      justify-content: center;
-      margin-left: 410px;
-      margin-top: 10px;
-      margin-bottom: 77px;
-    }
+        .img-game {
+          width: 290px;
+          height:290px ;
+          border-radius: 50%;
+          margin-top: 20px;
+          margin-left: 15px;
+          border: #102b4b 3px solid;
 
 
-/*
-    .albus:hover .img-game{
-         opacity: 0;
-          transition: 10s;
-
-    }*/
+        }
 
 
+         div .form-harry{
+         background-color:transparent;
+         margin-right: 600px;
+                }
+
+
+        .owl{
+
+        border: #102b4b 3px solid;;
+          border-radius: 50%;
+          height: 20%;
+          background-color: #0b131c;
+          text-decoration: none;
+          font-family: 'Cinzel Decorative', cursive;
+          margin-left: 80px;
+
+        }
+
+        .cajamayor{
+          flex-direction: column;
+          justify-content: center;
+          margin-left: 500px;
+          margin-top: 10px;
+          margin-bottom: 77px;
+        }
+
+
+
+    /* CSS DEL PARTIDA*/
     body.game-quizz{
       background-image: url("../img/fondomagia.jpg");
       margin:0;
@@ -327,21 +324,10 @@ button:hover{
       background-size: auto;
     }
 
-    .imggame{
-      width: 450px;
-      height: 300px;
-    }
-
-    .gameharry{
-      justify-content: center;
-      color: black;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-
-    }
-
-
+  /*      div .form-game{
+        background-color:black;
+        opacity: 0.6;
+        }*/
 
     .form-game{
     color:#d4dee3;
@@ -353,20 +339,43 @@ button:hover{
     overflow: hidden;
     font-weight: bold;
   /*  border: 1px solid white;*/
-
-
     }
-
-    inputgame{
-
-    }
-
-
 
     form .img-quizz{
        border-radius: 60%;
        opacity: 1;
+       background-color: red;
     }
+
+
+
+        /* CSS DEL RESULTADO-FINAL*/
+    body.game-final{
+          background-image: url("../img/Castillo.jpg");
+          margin:0;
+          padding: 0;
+          background-size: auto;
+        }
+
+    /*ERROR*/
+
+  .login-tit{
+    color:red;
+    font-family: 'Arial', cursive;
+    margin-bottom: 10px;
+    text-align: center;
+    font-size: 1.4rem;
+  }
+
+
+    .personajerror img{
+    border-radius: 70%;
+
+    margin-top: 40px;
+    margin-left: 550px;
+    }
+    -------------------------------------------------------
+
 
 
 
@@ -693,7 +702,6 @@ button:hover{
       .personaje img{
         border-radius: 70%;
         margin-top: 20px;
-      }
 
 
 
@@ -715,8 +723,8 @@ button:hover{
           margin-bottom: 10px;
           text-align: center;
             font-size: 1.4rem;
-        }
 
+        }
       /*  .loginform{
         margin-right: 10px;
 

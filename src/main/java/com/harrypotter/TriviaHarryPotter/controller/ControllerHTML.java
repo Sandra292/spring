@@ -25,17 +25,19 @@ public class ControllerHTML {
 
 
 
-   @GetMapping("login")
+   /*@GetMapping("login")
     public String irAlLogin() {
         return "Home/login";
 
     }
 
-   @PostMapping("login")
+  @PostMapping("login")
     public String usuarioRegistrado() {
         return "Home/login";
 
-    }
+    }*/
+
+
 
     @GetMapping("FAQ")
     public String irAFaq() {

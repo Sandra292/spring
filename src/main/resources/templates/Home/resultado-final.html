@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+
+    <meta charset="utf-8">
+    <title>The Wizarding Quiz</title>
+    <link href="https://fonts.googleapis.com/css?famly=Montserrat:200" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/CSS/style.css"></link>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"></meta>
+    <link rel="icon" type="image/jpg" href="img/logo.jpg">
+    <link href="https://fonts.googleapis.com/css?family=Cinzel+Decorative|Eagle+Lake&display=swap"
+          rel="stylesheet"></link>
+    <style type="text/css">* {cursor: url(http://cur.cursors-4u.net/user/use-1/use160.cur), auto !important;}</style>
+</head>
+
+<body class="game-final">
+
+<header>
+    <nav id="logo">
+        <img src="img/logo.jpg" alt="logo"></img> <strong><p id="titulo-nav">| The wizarding Quiz |</p></strong>
+    </nav>
+    <strong>
+        <nav id="uno"><a href="home">HOME</a><a href="FAQ">FAQ</a><a href="registro">REGISTRO</a><a href="login">LOG IN</a>
+        </nav>
+    </strong>
+</header>
+
+
+<form method="post" th:object="${question}" class="form-game-harry" action="partida-respuesta">
+
+    <div th:each="question : ${questions}">
+
+        <h1 th:text="${question.text}"></h1>
+
+        <img src="img/hogwarts2.jpg" width="200px" height="200px" class="img-quizz">
+
+        <div class="row" th:each="answer : ${question.answers}">
+
+
+           <!-- <div th:text="${question.text}"></div>-->
+            <div th:text="${answer.text}"></div>
+
+            <div >
+
+                <p th:if="${correct}">Respuesta correcta! Serás un fantástico mago!</p>
+                <p th:unless="${correct}">Respuesta incorrecta! Sigue practicando! </p>
+
+
+
+            </div>
+
+            <!--<div class="col-1">
+                <input type="radio" th:id="'answer_' + ${answer.id}"  name="answer" class="inputgame" >
+                <label th:text="${answer.text}" th:for="'answer_' + ${answer.id}"></label>
+            </div>-->
+
+
+        </div>
+    </div>
+
+
+
+</form>
+
+
+
+<footer>
+
+    <div class="container-footer">
+        2019@ Copyright Wingardium.Inc
+
+        <p class="social-home">
+            <a href="https://twitter.com/?lang=es" target="_blank"><img class="img-social" src="img/twitter.png"
+                                                                        alt="Twitter"></img></a>
+            <a href="https://www.facebook.com/" target="_blank"><img class="img-social" src="img/facebook.png"
+                                                                     alt="Facebook"></img></a>
+            <a href="https://www.instagram.com/?hl=es-la" target="_blank"><img class="img-social"
+                                                                               src="img/instagram.png"
+                                                                               alt="Instagram"></img> </a>
+
+        </p>
+
+    </div>
+
+
+</footer>
+
+
+
+</body>
+</html>

@@ -28,29 +28,26 @@
         </strong>
     </header>
 
-    <form method="post" th:object="${question}" class="form-game-harry" action="partida-respuesta">
+    <form method="post" class="form-game" action="/partida">
 
-        <div th:each="question : ${questions}">
+        <div>
 
             <h1 th:text="${question.text}"></h1>
             
             <img src="img/hogwarts2.jpg" width="200px" height="200px" class="img-quizz">
 
+            <input type="hidden" name="question" th:value="${question.id}">
             <div class="row" th:each="answer : ${question.answers}">
 
                 <div class="col-1">
-                    <input type="radio" th:id="'answer_' + ${answer.id}"  name="answer" class="inputgame" >
+                    <input type="hidden" name="position" th:value="${position + 1}">
+                    <input type="radio" th:id="'answer_' + ${answer.id}"  name="answer" th:value="${answer.correct}" class="inputgame" >
                     <label th:text="${answer.text}" th:for="'answer_' + ${answer.id}"></label>
                 </div>
 
-
             </div>
     </div>
-
-
-
         <!---->
-
         <button type="submit" th:text="'Enviar'" class="btn btn-primary"></button>
 
     </form>

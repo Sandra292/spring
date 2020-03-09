@@ -26,7 +26,7 @@
     </header>
 
 
-    <form class="form" action="game" method="post">
+    <form class="form"  method="POST"  modelAttribute="usuario">
 
 
 
@@ -38,15 +38,16 @@
                 <img src="img/login.jpg" alt="Dobby" >
             </div>
 
-            <label class="contacto" for="usuario">Usuario :</label>
+            <label class="contacto" for="usuarios">Usuario :</label>
             <p class="registroform">
 
-                <input id="usuario" type="text" name="usuario" placeholder="Ingrese su usuario" >
-
+                <input id="usuarios" type="text" name="usuario" placeholder="Ingrese su usuarios" >
 
 
             <p>
                 <span class="ErrorUsuario" style="color: red; font-size: 10px;"></span>
+
+
             </p>
             </p>
 
@@ -54,8 +55,6 @@
             <p class="registroform">
 
                 <input id="contraseña" type="password" name="contraseña" placeholder="Ingrese su contraseña">
-
-
 
             <p>
                 <span class="ErrorPassword" style="color: red; font-size: 10px;"></span>
@@ -100,6 +99,7 @@
 
 
 
+
 <script>
 
 
@@ -109,7 +109,7 @@
       //var ingresar = document.querySelector(".ingresar");
 
 
-          var usuario = document.querySelector("#usuario");
+          var usuarios = document.querySelector("#usuarios");
           var contraseña = document.querySelector("#contraseña");
           var email = document.querySelector("#email");
 
@@ -129,19 +129,19 @@
 
 
 
-    if (usuario.value.trim() == ""){
+    if (usuarios.value.trim() == ""){
       event.preventDefault();
-    errorUsuario.innerHTML = "El usuario es obligatorio";
-    usuario.style.border ="2px solid red";
+    errorUsuario.innerHTML = "El usuarios es obligatorio";
+    usuarios.style.border ="2px solid red";
       errores=true;
-    }else if (usuario.value.length < 5){
+    }else if (usuarios.value.length < 5){
       event.preventDefault();
     errorUsuario.innerHTML = "Usuario incorrecto";
-    usuario.style.border ="2px solid red";
+    usuarios.style.border ="2px solid red";
     errores=true;
       } else {
     errorUsuario.innerHTML = "";
-    usuario.style.border ="2px solid green";
+    usuarios.style.border ="2px solid green";
 
       }
 
@@ -180,9 +180,9 @@
 
               }
 
-              if (!errores){
+           <!--   if (!errores){
                 alert("Bienvenido");
-              }
+              }-->
 
 
 
@@ -195,6 +195,7 @@
     });
 
     </script>
+
 
 
 

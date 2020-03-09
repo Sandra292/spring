@@ -1,7 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
-
-
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -29,7 +27,8 @@
         </strong>
     </header>
 
-    <form class="form" method="POST" action="login">
+    <form class="form" method="POST" th:action="@{/registro}" th:object="${usuarios}">
+
         <fieldset>
 
             <strong><div class="titulo">REGISTRO</div></strong>
@@ -41,22 +40,24 @@
 
             <p class="registroform">
 
-                <input id="nombre" name="nombre" type="text"  placeholder="Nombre">
+                <input id="nombre" type="text"  placeholder="Nombre" th:field="*{nombre}">
 
 
 
             <p>
-                <span style="color: red; font-size: 10px;" class="ErrorNombre"></span>
+                <span style="color: red; font-size: 10px;" class="ErrorNombre" > </span>
+                 <span th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></span>
             </p>
             </p>
 
 
 
             <p class="registroform">
-                <input id="apellido" name="apellido" type="text" placeholder="Apellido">
+                <input id="apellido"  type="text" placeholder="Apellido" th:field="*{apellido}">
 
 
             <p>
+                <span th:if="${#fields.hasErrors('apellido')}" th:errors="*{apellido}"></span>
                 <span style="color: red; font-size: 10px;" class="ErrorApellido"></span>
             </p>
             </p>
@@ -65,16 +66,12 @@
 
 
 
-
-
-
-
-
             <p class="registroform">
-                <input id="usuario" name="usuario" type="text" placeholder="Ingrese su usuario">
+                <input id="usuario"  type="text" placeholder="Ingrese su usuario" th:field="*{usuario}">
 
             <p>
-                <span style="color: red; font-size: 10px;" class="ErrorUsuario"></span>
+                <span style="color: red; font-size: 10px;" class="ErrorUsuario" ></span>
+                <span th:if="${#fields.hasErrors('usuario')}" th:errors="*{usuario}"></span>
             </p>
             </p>
 
@@ -83,11 +80,12 @@
 
             <p class="registroform">
 
-                <input id="email" name="email" type="email" placeholder="Ingrese su email"  >
+                <input id="email"  type="email" placeholder="Ingrese su email" th:field="*{email}">
 
 
             <p>
-                <span style="color: red; font-size: 10px;" class="ErrorEmail"></span>
+                <span style="color: red; font-size: 10px;" class="ErrorEmail" ></span>
+                <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span>
             </p>
             </p>
 
@@ -97,10 +95,11 @@
             <p class="registroform">
 
 
-                <input id="contraseña"  type="password" name="contraseña" placeholder="Ingrese su contraseña"  value="" >
+                <input id="contraseña"  type="password"  placeholder="Ingrese su contraseña"  value="" th:field="*{contraseña}" >
 
             <p>
-                <span style="color: red; font-size: 10px;" class="ErrorPassword"></span>
+                <span style="color: red; font-size: 10px;" class="ErrorPassword" ></span>
+                <span th:if="${#fields.hasErrors('contraseña')}" th:errors="*{contraseña}"></span>
             </p>
             </p>
 
@@ -110,25 +109,27 @@
 
             <p class="registroform">
 
-                <input id="confirmar-contraseña"   type="password" name="confirmarContraseña" placeholder="Confirmar su contraseña"  value="">
+                <input id="confirmar-contraseña"   type="password"  placeholder="Confirmar su contraseña"  value="" th:field="*{confirmarContraseña}">
 
             <p>
-                <span style="color: red; font-size: 10px;" class="ErrorPassword"></span>
+                <span style="color: red; font-size: 10px;" class="ErrorPassword" ></span>
+            <span th:if="${#fields.hasErrors('confirmarContraseña')}" th:errors="*{confirmarContraseña}"> </span>
+        </p>
             </p>
-            </p>
 
 
 
 
 
-            <label class="contacto"  name="paises"> País : </label>
+            <label class="contacto"  th:field="*{paises}"> País : </label>
 
             <p>
                 <select class="paises" name="paises">
                     <option value="">Selecciona un país</option>
                 </select>
             <p>
-                <span style="color: red; font-size: 10px;" class="ErrorPaises"></span>
+                <span style="color: red; font-size: 10px;" class="ErrorPaises" ></span>
+           <span th:if="${#fields.hasErrors('paises')}" th:errors="*{paises}"></span>
             </p>
             </p>
 
@@ -179,7 +180,7 @@ window.addEventListener ('load', function (){
 
 var nombre = document.querySelector("#nombre");
 var apellido = document.querySelector("#apellido");
-var usuario = document.querySelector("#usuario");
+var usuarios = document.querySelector("#usuarios");
 var email = document.querySelector("#email");
 var contraseña = document.querySelector("#contraseña");
 var confirmarContraseña = document.querySelector("#confirmar-contraseña");
@@ -232,19 +233,19 @@ errorApellido.innerHTML = "";
 apellido.style.border ="2px solid green";
 }
 
-if (usuario.value.trim() == ""){
+if (usuarios.value.trim() == ""){
   event.preventDefault();
-  errorUsuario.innerHTML = "El usuario es obligatorio";
-usuario.style.border ="2px solid red";
+  errorUsuario.innerHTML = "El usuarios es obligatorio";
+usuarios.style.border ="2px solid red";
 errores=true;
-}else if (usuario.value.length < 5){
+}else if (usuarios.value.length < 5){
   event.preventDefault();
-  errorUsuario.innerHTML = "El usuario debe tener al menos 5 caracteres";
-usuario.style.border ="2px solid red";
+  errorUsuario.innerHTML = "El usuarios debe tener al menos 5 caracteres";
+usuarios.style.border ="2px solid red";
 errores=true;
 } else {
 errorUsuario.innerHTML = "";
-usuario.style.border ="2px solid green";
+usuarios.style.border ="2px solid green";
 }
 
 

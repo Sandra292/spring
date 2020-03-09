@@ -18,7 +18,7 @@ public class AnswerService {
         this.answerJPARepository = answerJPARepository;
     }
 
-    public Answer findById(Integer id) throws Exception {
+    public Answer findById(Integer[] id) throws Exception {
         Optional<Answer> answer = this.answerJPARepository.findById(id);
 
         if (answer.isPresent()) {
